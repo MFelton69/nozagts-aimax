@@ -1,0 +1,6 @@
+jQuery(function($){if($(".cookie-consent-container").length){function createCookie(name,value,days){var expires;if(days){var date=new Date();date.setTime(date.getTime()+(days*24*60*60*1000));expires="; expires="+date.toGMTString()}else{expires=""}
+document.cookie=name+"="+value+expires+"; path=/"}
+function readCookie(name){var nameEQ=name+"=";var ca=document.cookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)===' '){c=c.substring(1,c.length)}
+if(c.indexOf(nameEQ)===0){return c.substring(nameEQ.length,c.length)}}
+return null}
+var cookie_name=$("input[name=ps_cookie_name]").val();$(document).ready(function(){if(null===readCookie(cookie_name)){$(".cookie-overtainer").show()}else{$(".cookie-overtainer").remove()}});$(".cookie-accept").click(function(){createCookie(cookie_name,'1',365*10);$(this).addClass('accepted');setTimeout(function(){$(".cookie-overtainer").addClass('hide')},300);setTimeout(function(){$(".cookie-overtainer").remove()},1000)})}})
